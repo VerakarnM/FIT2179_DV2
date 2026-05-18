@@ -3,7 +3,7 @@
     "data": {
         "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Interstate_Migration_2017_2025.csv"
     },
-    "width": "container",
+    "width": 400,
     "transform": [
         {
             "filter": "datum.Measure === 'NIM Arrivals' && datum.Age === 'All ages' && datum.Region != 'Australia'"
@@ -16,7 +16,7 @@
     "encoding": {
         "x": {
             "field": "TIME_PERIOD",
-            "type": "ordinal",
+            "type": "temporal",
             "title": null
         },
         "y": {
@@ -27,7 +27,7 @@
         "color": {
             "type": "nominal",
             "field": "Region",
-            "legend":{"orient": "none", "legendX":10, "legendY":5}
+            "legend":{"orient": "none", "legendX":410, "legendY":5}
         }
     },
     "config": {}
