@@ -1,0 +1,125 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Interstate Migration Arrivals by State",
+    "width": 500,
+    "height": 300,
+    "projection": {
+        "type": "mercator"
+    },
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": 2017,
+            "bind": {
+                "input": "select",
+                "options": [
+                    2017,
+                    2018,
+                    2019,
+                    2020,
+                    2021,
+                    2022,
+                    2023,
+                    2024,
+                    2025
+                ],
+                "name": "Year: "
+            }
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Australia_States%26TerritoriesMap.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "STE_2016_AUST"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#eeeeee",
+                "stroke": "black",
+                "strokeWidth": 1
+            }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Interstate_Migration_2017_2025.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Measure === 'NIM Arrivals'"
+                },
+                {
+                    "filter": "datum.Age === 'All ages'"
+                },
+                {
+                    "filter": "datum.Region != 'Australia'"
+                },
+                {
+                    "filter": "toNumber(datum.TIME_PERIOD) == selectedYear"
+                },
+                {
+                    "lookup": "Region",
+                    "from": {
+                        "data": {
+                            "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Australia_States%26TerritoriesMap.json",
+                            "format": {
+                                "type": "topojson",
+                                "feature": "STE_2016_AUST"
+                            }
+                        },
+                        "key": "properties.STE_NAME16"
+                    },
+                    "as": "geo"
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "stroke": "black",
+                "strokeWidth": 0.5
+            },
+            "encoding": {
+                "shape": {
+                    "field": "geo",
+                    "type": "geojson"
+                },
+                "color": {
+                    "field": "OBS_VALUE",
+                    "type": "quantitative",
+                    "scale": {
+                        "scheme": "reds"
+                    },
+                    "legend": {
+                        "title": "Arrivals",
+                        "format": ",.0f"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Region",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "OBS_VALUE",
+                        "type": "quantitative",
+                        "title": "Number of Arrivals",
+                        "format": ","
+                    },
+                    {
+                        "field": "TIME_PERIOD",
+                        "type": "ordinal",
+                        "title": "Year"
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}
