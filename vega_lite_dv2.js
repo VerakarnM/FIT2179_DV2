@@ -3,3 +3,6 @@ vegaEmbed("#vis1", vg_1).then(function (result) {}).catch(console.error);
 
 var vg_2 = "vis2.vg.json";
 vegaEmbed("#vis2", vg_2).then(function (result) {}).catch(console.error);
+
+var vg_3 = "vis3.vg.json";
+vegaEmbed("#vis3", vg_3).then(function (result) {}).catch(console.error);
