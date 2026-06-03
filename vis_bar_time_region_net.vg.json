@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Net Interstate Migration by Region",
+    "data": {
+        "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Interstate_Migration_2017_2025.csv"
+    },
+    "params": [
+        {
+            "name": "selectedYear",
+            "value": 2017,
+            "bind": {
+                "input": "select",
+                "options": [
+                    2017,
+                    2018,
+                    2019,
+                    2020,
+                    2021,
+                    2022,
+                    2023,
+                    2024,
+                    2025
+                ],
+                "name": "Year: "
+            }
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Measure === 'Net Interstate Migration' && datum.Age === 'All ages' && datum.Region != 'Australia'"
+        },
+        {
+            "filter": "toNumber(datum.TIME_PERIOD) == selectedYear"
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "Region",
+            "type": "nominal",
+            "title": "State or Territory"
+        },
+        "y": {
+            "field": "OBS_VALUE",
+            "type":"quantitative",
+            "title": "Net Interstate Migration"
+        },
+        "tooltip":[
+            {
+                "field": "Region",
+                "type": "nominal",
+                "title": "Region"
+            },
+            {
+                "field": "OBS_VALUE",
+                "type": "quantitative",
+                "title": "Net Interstate Migration",
+                "format": ","
+            }
+        ]
+    },
+    "config": {}
+}

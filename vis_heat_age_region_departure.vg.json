@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Departures by Age and Region across 2017-2025",
+    "data": {
+        "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Interstate_Migration_2017_2025.csv"
+    },
+    "transform": [
+        {
+            "filter": "datum.Measure === 'NIM Departures' && datum.Age != 'All ages' && datum.Region != 'Australia'"
+        },
+        {
+            "aggregate": [
+                {
+                    "op": "sum",
+                    "field": "OBS_VALUE",
+                    "as": "AGE_OBS_VALUE"
+                }
+            ],
+            "groupby": [
+                "Age",
+                "Region"
+            ]
+        }
+    ],
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "Region",
+            "type": "nominal",
+            "title": "State or Territory"
+        },
+        "y": {
+            "field": "Age",
+            "type": "nominal",
+            "title": "Age Groups"
+        },
+        "color": {
+            "field": "AGE_OBS_VALUE",
+            "type": "quantitative",
+            "title": "Departures",
+            "scale":{"scheme":"yellowgreenblue", "type": "log"}
+        },
+        "tooltip":[
+            {"field": "AGE_OBS_VALUE",
+            "type": "quantitative",
+            "title": "Departures"}
+                
+    ]
+    },
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        }
+    }
+}
