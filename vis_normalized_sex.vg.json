@@ -1,0 +1,72 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Percent of Migration (Arrivals) by Gender and Year",
+    "data": {
+        "url": "https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/Interstate_Migration_2017_2025.csv"
+    },
+    "width": 300,
+    "transform": [
+        {
+            "filter": "datum.Measure === 'NIM Arrivals' && datum.Age === 'All ages' && datum.Region === 'Australia' && datum.Sex != 'Persons'"
+        }
+    ],
+    "encoding": {
+        "y": {
+            "field": "TIME_PERIOD",
+            "title": null
+        }
+    },
+    "layer": [
+        {
+            "mark": "bar",
+            "encoding": {
+                "x": {
+                    "aggregate": "sum",
+                    "field": "OBS_VALUE",
+                    "title": "Arrivals",
+                    "stack": "normalize"
+                },
+                "color": {
+                    "field": "Sex",
+                    "scale":{"range":["red","teal"]}
+                },
+                "tooltip": [
+                    {
+                        "field": "OBS_VALUE",
+                        "type": "quantitative",
+                        "title": "Number of Arrivals",
+                        "format": ","
+                    },
+                    {
+                        "field": "Sex",
+                        "title": "Gender"
+                    }
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "opacity": 0.9,
+                "color": "white"
+            },
+            "encoding": {
+                "x": {
+                    "aggregate": "sum",
+                    "field": "OBS_VALUE",
+                    "title": "Arrivals",
+                    "stack": "normalize",
+                    "bandPosition": 0.5
+                },
+                "text": {
+                    "aggregate": "sum",
+                    "field": "OBS_VALUE",
+                    "title": "Arrivals"
+                },
+                "detail": {
+                    "field": "Sex"
+                }
+            }
+        }
+    ]
+}

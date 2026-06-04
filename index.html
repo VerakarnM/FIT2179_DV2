@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
     <title>Interstate Migration in Australia</title>
 
@@ -22,34 +24,52 @@
         <div class="pure-g">
             <div class="pure-u-1-1">
                 <h1>Interstate Migration in Australia</h1>
-                <p>[Introduction] Internal migration across Australia refers to the movement of people between states and territories, 
-                    which affects how the population is distributed throughout the country. This project uses Net Interstate Migration 
-                    (NIM) data from the Australian Bureau of Statistics to analyse the difference between the number of people moving 
-                    into and out of each state or territory by age, sex, and financial year.</p>
+                <p>[Introduction] Internal migration across Australia refers to the movement of people between states
+                    and territories,
+                    which affects how the population is distributed throughout the country. This project uses Net
+                    Interstate Migration
+                    (NIM) data from the Australian Bureau of Statistics to analyse the difference between the number of
+                    people moving
+                    into and out of each state or territory by age, gender, and financial year.</p>
             </div>
         </div>
 
         <div class="pure-g">
             <div class="pure-u-1-2">
                 <div class="description description-left">
-                    <h2>[heading]</h2>
+                    <h2>[heading 1]</h2>
                     <p>[Paragraph on Interstate Travel Arrivals per state across the years]</p>
                 </div>
             </div>
             <div class="pure-u-1-2">
-                <div id="vis1" class="vis-container"></div>
+                <div id="visDualBarMigrate" class="vis-container"></div>
             </div>
         </div>
 
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <h2>[heading 2]</h2>
-                    <p>[Paragraph relating to map]</p>
+                <div id="visLineArrival" class="vis-container">
                 </div>
             </div>
             <div class="pure-u-1-2">
-                <div id="vis2" class="vis-container"></div>
+                <div id="visLineDepart" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="visMapArrival" class="vis-container"></div>
+                
+            </div>
+            <div class="pure-u-1-2">
+                <div id="visMapDepart" class="vis-container"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>[Heading 2]</h1>
+                <p>[Paragraph 2] Something about arrivals and departures</p>
             </div>
         </div>
 
@@ -57,18 +77,46 @@
             <div class="pure-u-1-2">
                 <div class="description description-left">
                     <h2>[heading 3]</h2>
-                    <p>[Paragraph relating to map]</p>
+                    <p>[Paragraph on net change]</p>
                 </div>
             </div>
             <div class="pure-u-1-2">
-                <div id="vis3" class="vis-container"></div>
+                <div id="visNetBar" class="vis-container"></div>
             </div>
         </div>
 
-    </div>
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2>[Heading 4]</h2>
+                    <p>[Paragraph 4]</p>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="visDualBarGender" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3" style="width: 31.5%;">
+                <div id="visNormalGender" class="vis-container" style="margin-left: 15px;"></div>
+            </div>
+        </div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <div class="description description-left">
+                    <h2>[Heading 5]</h2>
+                    <p>[Paragraph 5]</p>
+                </div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="visHeatArrival" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3" style="width: 31.5%;">
+                <div id="visHeatDepart" class="vis-container" style="margin-left: 15px;"></div>
+            </div>
+        </div>
 
 
-    <script src="vega_lite_dv2.js"></script>
+        <script src="vega_lite_dv2.js"></script>
 </body>
 
 </html>

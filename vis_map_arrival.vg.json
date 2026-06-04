@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Interstate Migration Arrivals by RegionS",
+    "title": "Interstate Migration Arrivals by Region",
     "width": 500,
     "height": 300,
     "projection": {
@@ -49,13 +49,7 @@
             },
             "transform": [
                 {
-                    "filter": "datum.Measure === 'NIM Arrivals'"
-                },
-                {
-                    "filter": "datum.Age === 'All ages'"
-                },
-                {
-                    "filter": "datum.Region != 'Australia'"
+                    "filter": "datum.Measure === 'NIM Arrivals' && datum.Sex === 'Persons' && datum.Age === 'All ages' && datum.Region != 'Australia'"
                 },
                 {
                     "filter": "toNumber(datum.TIME_PERIOD) == selectedYear"

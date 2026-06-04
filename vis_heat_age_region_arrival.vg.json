@@ -6,7 +6,7 @@
     },
     "transform": [
         {
-            "filter": "datum.Measure === 'NIM Arrivals' && datum.Age != 'All ages' && datum.Region != 'Australia'"
+            "filter": "datum.Measure === 'NIM Arrivals' && datum.Age != 'All ages' && datum.Region != 'Australia' && datum.Sex === 'Persons'"
         },
         {
             "aggregate": [
@@ -32,20 +32,42 @@
         "y": {
             "field": "Age",
             "type": "nominal",
-            "title": "Age Groups"
+            "title": "Age Groups",
+            "sort": [
+                "0-4",
+                "5-9",
+                "10-14",
+                "15-19",
+                "20-24",
+                "25-29",
+                "30-34",
+                "35-39",
+                "40-44",
+                "45-49",
+                "50-54",
+                "55-59",
+                "60-64",
+                "65-69",
+                "70-74",
+                "75 and over"
+            ]
         },
         "color": {
             "field": "AGE_OBS_VALUE",
             "type": "quantitative",
             "title": "Arrivals",
-            "scale":{"scheme":"yelloworangebrown", "type": "log"}
+            "scale": {
+                "scheme": "yelloworangebrown",
+                "type": "log"
+            }
         },
-        "tooltip":[
-            {"field": "AGE_OBS_VALUE",
-            "type": "quantitative",
-            "title": "Arrivals"}
-                
-    ]
+        "tooltip": [
+            {
+                "field": "AGE_OBS_VALUE",
+                "type": "quantitative",
+                "title": "Arrivals"
+            }
+        ]
     },
     "config": {
         "view": {

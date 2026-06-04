@@ -49,13 +49,7 @@
             },
             "transform": [
                 {
-                    "filter": "datum.Measure === 'NIM Departures'"
-                },
-                {
-                    "filter": "datum.Age === 'All ages'"
-                },
-                {
-                    "filter": "datum.Region != 'Australia'"
+                    "filter": "datum.Measure === 'NIM Departures' && datum.Sex === 'Persons' && datum.Age === 'All ages' && datum.Region != 'Australia'"
                 },
                 {
                     "filter": "toNumber(datum.TIME_PERIOD) == selectedYear"

@@ -7,7 +7,7 @@
     "width": 400,
     "transform": [
         {
-            "filter": "datum.Measure === 'NIM Departures' && datum.Age === 'All ages' && datum.Region != 'Australia'"
+            "filter": "datum.Measure === 'NIM Departures' && datum.Age === 'All ages' && datum.Region != 'Australia' && datum.Sex === 'Persons'"
         }
     ],
     "mark": {
@@ -27,7 +27,8 @@
         "y": {
             "field": "OBS_VALUE",
             "type":"quantitative",
-            "title":"Total Departures"
+            "title":"Total Departures",
+            "scale":{"domain":[0,150000]}
         },
         "color": {
             "type": "nominal",

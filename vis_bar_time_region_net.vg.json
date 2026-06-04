@@ -27,7 +27,7 @@
     ],
     "transform": [
         {
-            "filter": "datum.Measure === 'Net Interstate Migration' && datum.Age === 'All ages' && datum.Region != 'Australia'"
+            "filter": "datum.Measure === 'Net Interstate Migration' && datum.Age === 'All ages' && datum.Region != 'Australia' && datum.Sex === 'Persons'"
         },
         {
             "filter": "toNumber(datum.TIME_PERIOD) == selectedYear"
