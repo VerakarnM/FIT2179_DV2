@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -12,7 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://raw.githubusercontent.com/VerakarnM/FIT2179_DV2/refs/heads/main/css/style.css" media="all">
 
     <title>Interstate Migration in Australia</title>
 
@@ -24,25 +29,37 @@
         <div class="pure-g">
             <div class="pure-u-1-1">
                 <h1>Interstate Migration in Australia</h1>
-                <p>[Introduction] Internal migration across Australia refers to the movement of people between states
-                    and territories,
-                    which affects how the population is distributed throughout the country. This project uses Net
-                    Interstate Migration
-                    (NIM) data from the Australian Bureau of Statistics to analyse the difference between the number of
-                    people moving
-                    into and out of each state or territory by age, gender, and financial year.</p>
+                <p>Internal migration across Australia refers to the movement of people between states
+                    and territories, which affects how the population is distributed throughout the country. This
+                    project uses Net Interstate Migration (NIM) data from the Australian Bureau of Statistics to analyse
+                    the difference between the number of people moving into and out of each state or territory by age,
+                    gender, and financial year. By analysing migration
+                    trends, growth regions, and demographic changes, the project aims to make migration data easier to
+                    understand and interpret through clear visualisations, providing valuable insights for both
+                    decision-makers and individuals considering relocation within Australia.</p>
             </div>
         </div>
 
         <div class="pure-g">
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-3">
                 <div class="description description-left">
-                    <h2>[heading 1]</h2>
-                    <p>[Paragraph on Interstate Travel Arrivals per state across the years]</p>
+                    <h2>Net Migration by Region</h2>
+                    <p>Between 2017 and 2025, interstate migration patterns across Australia changed significantly. New
+                        South Wales experienced consistent migration loss and remained as largest source of departures.
+                        Victoria moved from positive net migration before 2020 to substantially more departures during
+                        and after the
+                        pandemic. Queensland stood out as the leading destination for interstate migrants, attracting
+                        more arrivals than departures
+                        across most years. Western Australia experienced a gradual increase in arrivals after 2020,
+                        while South Australia, Tasmania, the Northern Territory, and the ACT maintained lower but
+                        relatively stable migration flows.</p>
                 </div>
             </div>
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-3">
                 <div id="visDualBarMigrate" class="vis-container"></div>
+            </div>
+            <div class="pure-u-1-3">
+                <div id="visNetBar" class="vis-container"></div>
             </div>
         </div>
 
@@ -57,6 +74,22 @@
         </div>
 
         <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h2>Arrivals and Depatures by Time and Region</h2>
+                <p>New South Wales, Victoria, and Queensland are consistently above in both arrivals and departures due
+                    to their higher population and stronger labour market. By 2020, around when the COVID-19 pandemic
+                    was happening, Interstate Migration Arrivals saw a significant decrease for arrivals for the 3 most
+                    populated states. Departures also showed an overall decrease during the pandemic with the exception
+                    for Victoria. After the pandemic period, interstate travel remained lower than previous years,
+                    likely due to a shift to online working making the need to travel for work less prevalent. </p>
+                <p>
+                    The geographic map highlights a clear shift in population movement across Australia between 2019 to
+                    2025. Eastern states experienced the most amount of interstate travel comapritively to the rest of
+                    Australia.</p>
+            </div>
+        </div>
+
+        <div class="pure-g">
             <div class="pure-u-1-2">
                 <div id="visMapArrival" class="vis-container"></div>
 
@@ -67,29 +100,17 @@
         </div>
 
         <div class="pure-g">
-            <div class="pure-u-1-1">
-                <h1>[Heading 2]</h1>
-                <p>[Paragraph 2] Something about arrivals and departures</p>
-            </div>
-        </div>
-
-        <div class="pure-g">
-            <div class="pure-u-1-2">
-                <div class="description description-left">
-                    <h2>[heading 3]</h2>
-                    <p>[Paragraph on net change]</p>
-                </div>
-            </div>
-            <div class="pure-u-1-2">
-                <div id="visNetBar" class="vis-container"></div>
-            </div>
-        </div>
-
-        <div class="pure-g">
             <div class="pure-u-1-3">
                 <div class="description description-left">
-                    <h2>[Heading 4]</h2>
-                    <p>[Paragraph 4]</p>
+                    <h2>Gender in Interstate Migration</h2>
+                    <p>From 2017–2025, interstate migration departures show a very balanced gender distribution across
+                        all Australian regions. Males generally recorded slightly higher departure numbers than females,
+                        particularly in New South Wales, Victoria, Queensland, and Western Australia. However, the gap
+                        between genders remained small and consistent throughout the period. Tasmania displayed
+                        the most even distribution, with female departures occasionally exceeding male departures. Both
+                        genders experienced similar fluctuations over time, including declines around 2021 and gradual
+                        recovery afterward, indicating that interstate migration patterns affected males and females in
+                        largely comparable ways across regions.</p>
                 </div>
             </div>
             <div class="pure-u-1-3">
@@ -103,8 +124,13 @@
         <div class="pure-g">
             <div class="pure-u-1-3">
                 <div class="description description-left">
-                    <h2>[Heading 5]</h2>
-                    <p>[Paragraph 5]</p>
+                    <h2>Age in Interstate Migration</h2>
+                    <p>Interstate migration arrivals were concentrated among young and working-age adults, particularly
+                        those aged 20–39. Queensland attracted the strongest inflows across most age groups, while
+                        Victoria and New South Wales also received substantial arrivals. Western Australia showed steady
+                        growth in working-age migrants. Arrivals declined progressively with age, with people aged 60
+                        and over representing the smallest share. Departures shows similar distribution of age with
+                        Interstate travel. </p>
                 </div>
             </div>
             <div class="pure-u-1-3">
@@ -116,12 +142,58 @@
         </div>
 
         <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p>Between 2017 and 2025, Australia’s population distribution was significantly shaped by patterns of
+                    interstate migration, which varied across states and territories. Queensland consistently emerged as
+                    the primary destination for interstate migrants, reflecting sustained net inflows driven by factors
+                    such as relative housing affordability, employment opportunities, and lifestyle preferences. In
+                    contrast, New South Wales and Victoria recorded comparatively higher levels of net population
+                    outflow. Nevertheless, both states remained central to national migration dynamics due to their
+                    large population bases and their roles as key economic, educational, and employment hubs.</p>
+                    <p>Analysis on Age indicates that interstate migration was predominantly driven by individuals in the
+                    young and working-age cohorts, particularly those aged 20–39. This trend reflects the influence of
+                    labour market mobility, tertiary education opportunities, and lifestyle transitions associated with
+                    early adulthood. In comparison, older age groups exhibited substantially lower levels of interstate
+                    mobility, indicating greater residential stability and reduced likelihood of relocation.</p>
+                    <p>Gender focused analysis shows that migration flows were relatively balanced between males and
+                    females across all states and throughout the study period, suggesting no significant gender
+                    disparity in interstate travel patterns.</p>
+                    <p>Overall, interstate migration played a significant role in reshaping population distribution and
+                    contributing to demographic change across Australia during the 2017–2025 period. These trends
+                    highlight the emergence of shifting population corridors, particularly towards Queensland and
+                    selected regional areas. The findings have important implications for policymakers and planners in
+                    relation to housing demand, infrastructure development, labour force planning, and the sustainable
+                    management of regional population growth.
+                </p>
+            </div>
+        </div>
+
+        <div class="pure-g">
             <div class="pure-u-1-1 small-font">
-                <p>This visualisation is created by <a href="https://github.com/VerakarnM/FIT2179_DV2" target="https://github.com/VerakarnM/FIT2179_DV2">Verakarn Malayphonh</a>.
+                <p>This visualisation is created by <a href="https://github.com/VerakarnM/FIT2179_DV2"
+                        target="https://github.com/VerakarnM/FIT2179_DV2">Verakarn Malayphonh</a>.
                     The datasource is <a
                         href="https://www.data.gov.au/data/dataset/net-interstate-migration-financial-years"
-                        target="https://www.data.gov.au/data/dataset/net-interstate-migration-financial-years"> Australian Buerau of Statistics Net Interstate Migration, Financial Years
+                        target="https://www.data.gov.au/data/dataset/net-interstate-migration-financial-years">
+                        Australian Buerau of Statistics Net Interstate Migration, Financial Years
                         </href>.</p>
+                <p>
+                    Additional Information:</p>
+
+                <p>
+                    <a href="https://www.infrastructure.gov.au/sites/default/files/documents/bcarr-report-migration-during-covid-january-2024.pdf"
+                        target="https://www.infrastructure.gov.au/sites/default/files/documents/bcarr-report-migration-during-covid-january-2024.pdf">https://www.infrastructure.gov.au/sites/default/files/documents/bcarr-report-migration-during-covid-january-2024.pdf</a>
+                </p>
+
+                <p>
+                    <a href="https://darraghmurray.com/data/analysing-interstate-migration-movements-in-australia/"
+                        target="https://darraghmurray.com/data/analysing-interstate-migration-movements-in-australia/">https://darraghmurray.com/data/analysing-interstate-migration-movements-in-australia/</a>
+                </p>
+
+                <p>
+                    <a href="https://www.id.com.au/insights/articles/how-fast-is-australia-growing/"
+                        target="https://www.id.com.au/insights/articles/how-fast-is-australia-growing/">https://www.id.com.au/insights/articles/how-fast-is-australia-growing/</a>
+                </p>
             </div>
         </div>
 
